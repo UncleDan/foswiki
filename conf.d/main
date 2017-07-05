@@ -1,0 +1,30 @@
+#!/bin/sh -ex
+
+SRC=/usr/local/src
+WEBROOT=/var/www/foswiki
+
+# unpack twiki, overlay twiki configuration
+tar -zxf $SRC/Foswiki-*.tgz -C $(dirname $WEBROOT)
+rsync -a /var/www/Foswiki-*/ $WEBROOT
+rm -r /var/www/Foswiki-*
+#cp -TdR $SRC/foswiki.overlay $WEBROOT
+
+#XXX double check his conf file
+cp $WEBROOT/foswiki_httpd_conf.txt /etc/apache2/sites-available/foswiki.conf
+
+chown -R www-data:www-data $WEBROOT
+
+echo -e 'y\n' | cpan 
+cpan install Canary::Stability Crypt::PasswdMD5 File::Copy::Recursive JSON
+
+CONFIG="perl -CA $WEBROOT/tools/configure -save" 
+$CONFIG -noprompt # auto default config
+
+# apache configuration
+a2dissite 000-default
+a2enmod cgid
+a2ensite foswiki
+
+# cleanup
+rm -rf $SRC/Foswiki*
+rm -rf $SRC/foswiki*
