@@ -7,18 +7,14 @@ WEBROOT=/var/www/foswiki
 tar -zxf $SRC/Foswiki-*.tgz -C $(dirname $WEBROOT)
 rsync -a /var/www/Foswiki-*/ $WEBROOT
 rm -r /var/www/Foswiki-*
-#cp -TdR $SRC/foswiki.overlay $WEBROOT
-
-#XXX double check his conf file
-cp $WEBROOT/foswiki_httpd_conf.txt /etc/apache2/sites-available/foswiki.conf
-
-chown -R www-data:www-data $WEBROOT
 
 echo -e 'y\n' | cpan 
 cpan install Canary::Stability Crypt::PasswdMD5 File::Copy::Recursive JSON
 
 CONFIG="perl -CA $WEBROOT/tools/configure -save" 
-$CONFIG -noprompt # auto default config
+$CONFIG -noprompt # auto default config (writes config as root)
+
+chown -R www-data:www-data $WEBROOT
 
 # apache configuration
 a2dissite 000-default
