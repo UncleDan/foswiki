@@ -12,6 +12,7 @@ libtext-diff-perl
 liburi-perl
 libwww-perl
 libcgi-pm-perl
+libemail-mime-perl
 
 libfile-copy-recursive-perl
 libjson-xs-perl
