@@ -1,8 +1,0 @@
-#!/bin/bash -e
-# set twiki admin password and email
-
-. /etc/default/inithooks
-
-[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
-$INITHOOKS_PATH/bin/foswiki.py --pass="$APP_PASS" --email="$APP_EMAIL"
-
