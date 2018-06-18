@@ -21,15 +21,18 @@ def usage(s=None):
     print >> sys.stderr, __doc__
     sys.exit(1)
 
+DEFAULT_DOMAIN='www.example.com'
+
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
-                                       ['help', 'pass=', 'email='])
+                                       ['help', 'pass=', 'email=', 'domain='])
     except getopt.GetoptError, e:
         usage(e)
 
     password = ""
     email = ""
+    domain = ""
     for opt, val in opts:
         if opt in ('-h', '--help'):
             usage()
@@ -37,6 +40,8 @@ def main():
             password = val
         elif opt == '--email':
             email = val
+        elif opt == '--domain':
+            domain = val
 
     if not password:
         d = Dialog('TurnKey Linux - First boot configuration')
@@ -55,11 +60,24 @@ def main():
 
     inithooks_cache.write('APP_EMAIL', email)
 
-    config_args = ['perl', '-CA', '/var/www/foswiki/tools/configure', '-save', '-set']
+    if not domain:
+        if 'd' not in locals():
+            d = Dialog('Turnkey Linux - First boot configuration')
 
-    check_output(config_args + ['{Password}=%s' % password])
-    (config_args + ['{WebMasterEmail}=%s' % email])
+        domain = d.get_input(
+            "Foswiki Domain",
+            "Enter the domain to serve Foswiki.",
+            DEFAULT_DOMAIN)
 
+    if domain == "DEFAULT":
+        domain = DEFAULT_DOMAIN
+
+    inithooks_cache.write('APP_DOMAIN', domain)
+
+    check_output(['perl', '-CA', '/var/www/foswiki/tools/configure', '-save',
+            '-set', '{Password}=%s' % password,
+            '-set', '{WebMasterEmail}=%s' % email,
+            '-set', '{DefaultUrlHost}=%s' % domain])
 
 if __name__ == "__main__":
     main()
