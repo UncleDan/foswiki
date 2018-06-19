@@ -23,6 +23,7 @@ chown -R www-data:www-data $WEBROOT
 # apache configuration
 a2dissite 000-default
 a2enmod cgid
+a2enmod rewrite
 a2ensite foswiki
 
 # cleanup
