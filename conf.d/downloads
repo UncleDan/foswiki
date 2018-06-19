@@ -8,7 +8,7 @@ dl() {
 SRC="/usr/local/src"
 
 VERSION="2.1.6"
-URL="http://sourceforge.net/projects/foswiki/files/foswiki"
+URL="https://github.com/foswiki/distro/releases/download/FoswikiRelease02x01x06"
 
-dl $URL/$VERSION/Foswiki-$VERSION.tgz $SRC
+dl $URL/Foswiki-$VERSION.tgz $SRC
 
