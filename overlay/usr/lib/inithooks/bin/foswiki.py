@@ -72,10 +72,11 @@ def main():
     if domain == "DEFAULT":
         domain = DEFAULT_DOMAIN
 
+    inithooks_cache.write('APP_DOMAIN', domain)
+
     if not (domain.startswith('http://') or domain.startswith('https://')):
         domain = 'https://' + domain
 
-    inithooks_cache.write('APP_DOMAIN', domain)
 
     check_output(['perl', '-CA', '/var/www/foswiki/tools/configure', '-save',
             '-set', '{Password}=%s' % password,
