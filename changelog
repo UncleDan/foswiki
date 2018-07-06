@@ -1,5 +1,9 @@
-turnkey-foswiki-15 (1) turnkey; urgency=low
+turnkey-foswiki-15.0 (1) turnkey; urgency=low
 
-  * initial release.
+  * Initial release (forked from Twiki - no longer in development)
+
+  * Includes Foswiki lastest upstream (2.1.6)
+
+  * Installed from GitHub; to /var/www/foswiki
 
  -- Stefan Davis <stefan@turnkeylinux.org>  Mon, 18 Jun 2018 14:49:07 -0800
