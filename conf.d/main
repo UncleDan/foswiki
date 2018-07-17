@@ -3,7 +3,7 @@
 SRC=/usr/local/src
 WEBROOT=/var/www/foswiki
 
-# unpack twiki, overlay twiki configuration
+# unpack foswiki, overlay foswiki configuration
 tar -zxf $SRC/Foswiki-*.tgz -C $(dirname $WEBROOT)
 rsync -a /var/www/Foswiki-*/ $WEBROOT
 rm -r /var/www/Foswiki-*
