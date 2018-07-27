@@ -29,5 +29,5 @@ Credentials *(passwords set at first boot)*
 -  Webmin, Webshell, SSH: username **root**
 -  Foswiki: username **AdminUser**
 
-.. _Foswiki: http://foswiki.org
+.. _Foswiki: https://foswiki.org
 .. _TurnKey Core: https://www.turnkeylinux.org/core
