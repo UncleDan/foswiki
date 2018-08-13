@@ -21,7 +21,7 @@ and on top of that:
      documentation`_ for upgrading.
 
      We also recommend subscribing to the `'foswiki-announce' mailing
-     list`_ to recieve secruity announements in your inbox.
+     list`_ to receive secruity announements in your inbox.
 
 - SSL support out of the box.
 - Postfix MTA (bound to localhost) to allow sending of email (e.g.,
