@@ -1,3 +1,13 @@
+turnkey-foswiki-15.1 (1) turnkey; urgency=low
+
+  * Update conf.d/downloads scripts to always install latest version
+    (still currently includes 2.1.6)
+
+  * Fix Foswiki appliance credit footer - closes #1153.
+    [ Stefan Davis ]
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Mon, 19 Nov 2018 13:41:39 +1100
+
 turnkey-foswiki-15.0 (1) turnkey; urgency=low
 
   * Initial release (forked from Twiki - no longer in development)
