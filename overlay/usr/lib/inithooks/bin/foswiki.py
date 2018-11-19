@@ -4,7 +4,8 @@
 Option:
     --pass=     unless provided, will ask interactively
     --email=    unless provided, will ask interactively
-
+    --domain=   unless provided, will ask interactively
+                DEFAULT www.example.com
 """
 
 import sys
