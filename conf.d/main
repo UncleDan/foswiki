@@ -14,6 +14,9 @@ $CONFIG -set {EnableEmail}='1' \
         -set {Email}{MailMethod}='MailProgram' \
         -set {MailProgram}='/usr/sbin/sendmail -t -oi -oeq'
 
+# ensure that configure.log is owned by www-data
+touch $WEBROOT/working/logs/configure.log
+
 chown -R www-data:www-data $WEBROOT
 
 # apache configuration
