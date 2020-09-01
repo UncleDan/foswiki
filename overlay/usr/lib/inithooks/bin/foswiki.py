@@ -51,7 +51,7 @@ def main():
         d = Dialog('TurnKey Linux - First boot configuration')
         password = d.get_password(
             "Foswiki Password",
-            "Enter new password for the Foswiki 'AdminUser' account.")
+            "Enter new password for the Foswiki 'admin' account.")
 
     if not email:
         if 'd' not in locals():
@@ -59,7 +59,7 @@ def main():
 
         email = d.get_email(
             "Foswiki Email",
-            "Enter email address for the Foswiki 'AdminUser' account.",
+            "Enter email address for the Foswiki 'admin' account.",
             "admin@example.com")
 
     inithooks_cache.write('APP_EMAIL', email)
