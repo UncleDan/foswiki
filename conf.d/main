@@ -10,10 +10,9 @@ rm -r /var/www/Foswiki-*
 
 CONFIG="perl -CA $WEBROOT/tools/configure -save" 
 $CONFIG -noprompt # auto default config (writes config as root)
-$CONFIG \
-    -set {EnableEmail}='1' \
-    -set {Email}{MailMethod}='MailProgram' \
-    -set {MailProgram}='/usr/sbin/sendmail -t -oi -oeq'
+$CONFIG -set {EnableEmail}='1' \
+        -set {Email}{MailMethod}='MailProgram' \
+        -set {MailProgram}='/usr/sbin/sendmail -t -oi -oeq'
 
 chown -R www-data:www-data $WEBROOT
 
