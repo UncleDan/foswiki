@@ -12,7 +12,9 @@ CONFIG="perl -CA $WEBROOT/tools/configure -save"
 $CONFIG -noprompt # auto default config (writes config as root)
 $CONFIG -set {EnableEmail}='1' \
         -set {Email}{MailMethod}='MailProgram' \
-        -set {MailProgram}='/usr/sbin/sendmail -t -oi -oeq'
+        -set {MailProgram}='/usr/sbin/sendmail -t -oi -oeq' \
+        -set {SafeEnvPath}='/usr/local/bin:/usr/bin:/bin' \
+        -set {JQueryPlugin}{JQueryVersionForOldIEs}=''
 
 # ensure that configure.log is owned by www-data
 touch $WEBROOT/working/logs/configure.log
@@ -29,3 +31,5 @@ a2enmod access_compat
 # cleanup
 rm -rf $SRC/Foswiki*
 rm -rf $SRC/foswiki*
+# clean orig conf files
+rm -f $WEBROOT/lib/LocalSite.cfg.*
