@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/bash -ex
 
 SRC=/usr/local/src
 WEBROOT=/var/www/foswiki
