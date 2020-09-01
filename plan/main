@@ -29,6 +29,9 @@ liblwp-protocol-https-perl
 liburi-perl
 libversion-perl
 
+// Removed from Perl core pkg - installed explictly as per commandline warning
+liblocale-codes-perl
+
 // Optional dependencies
 libdbi-perl     /* Used for the Foswiki Page cache */
 
