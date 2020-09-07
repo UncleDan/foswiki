@@ -3,22 +3,38 @@
 webmin-apache
 apache2
 
+// System requirements as per "Ubuntu and other Debian derived distributions"
+// http://foswiki.org/System/SystemRequirements
+
 libalgorithm-diff-perl
-libcgi-session-perl
-liberror-perl
-libhtml-parser-perl
-liblocale-maketext-lexicon-perl
-libtext-diff-perl
-liburi-perl
-libwww-perl
+libarchive-tar-perl
+libauthen-sasl-perl
 libcgi-pm-perl
+libcgi-session-perl
+libcrypt-passwdmd5-perl
+libdigest-sha-perl
+libemail-address-perl
 libemail-mime-perl
-
+libencode-perl
+liberror-perl
 libfile-copy-recursive-perl
-libjson-xs-perl
-libcrypt-eksblowfish-perl
+libhtml-parser-perl
+libhtml-tree-perl
+libio-socket-ip-perl
+libio-socket-ssl-perl
+libjson-perl
+liblocale-maketext-perl
+libwww-perl
+liblwp-protocol-https-perl
+liburi-perl
+libversion-perl
 
-make
+// Removed from Perl core pkg - installed explictly as per commandline warning
+liblocale-codes-perl
+
+// Optional dependencies
+libdbi-perl     /* Used for the Foswiki Page cache */
+
 rcs
 zip
 unzip
