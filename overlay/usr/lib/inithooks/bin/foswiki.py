@@ -12,8 +12,8 @@ import sys
 import getopt
 from subprocess import check_output
 
-import inithooks_cache
-from dialog_wrapper import Dialog
+from libinithooks import inithooks_cache
+from libinithooks.dialog_wrapper import Dialog
 
 
 def usage(s=None):
