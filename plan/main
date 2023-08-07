@@ -38,3 +38,4 @@ libdbi-perl     /* Used for the Foswiki Page cache */
 rcs
 zip
 unzip
+libapache2-mod-security2
